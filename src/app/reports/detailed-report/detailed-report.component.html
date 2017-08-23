@@ -1,0 +1,31 @@
+<!doctype html>
+<html class="cui" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Detailed Report</title>
+        <link rel="stylesheet" href="../../../assets/css/cui-standard.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" >
+    </head>
+    <body>
+        <div>
+            <input type="text" name="daterangeInput" daterangepicker [options]="options" (selected)="selectedDate($event)" />
+        </div>
+        <div>
+            <table class="table table--bordered table--highlight table--hover">
+              <thead>
+                <tr>
+                  <th *ngFor="let column of columns">{{column.header}}</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let row of myRowData">
+                <tr>
+                    <td *ngFor="let column of columns">{{row[column.value]}}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+            <div>
+                <button class="btn btn--primary" (click)="clicked()">Load More</button>
+            </div>
+    </body>
+</html>

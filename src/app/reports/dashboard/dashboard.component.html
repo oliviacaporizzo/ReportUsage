@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="cui" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Summary Report</title>
+        <link rel="stylesheet" href="../../../assets/css/cui-standard.min.css">
+    </head>
+<body>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="form-group__text select">
+              <select  name= 'selectMonth' class="form-control" [(ngModel)]="selectedMonth" (change)="onMonthClick()">
+                  <option ng-click="onMonthClick()" *ngFor="let month of Months"> {{month}} </option>
+               </select>
+               <label for='selectMonth'>Month:</label>
+            </div>
+          </div>
+      </div>
+<div class="col-md-6">
+    <div class="form-group">
+        <div class="form-group__text select">
+          <select  name= 'selectYear' class="form-control" [(ngModel)]="selectedYear" (change)="onYearClick()">
+            <option ng-click="onYearClick()" *ngFor="let year of Years"> {{year}} </option>
+          </select>
+         <label for='selectYear'>Year:</label>
+        </div>
+    </div>
+</div>
+<div height= '200px' width='50%' *ngIf='dataIsLoaded'>
+    <canvas baseChart width="200" height="200"
+    [datasets]="lineChartData"
+    [labels]="lineChartLabels"
+    [options]="lineChartOptions"
+    [chartType]="lineChartType"
+    [colors]="lineChartColors"
+  ></canvas>
+</div>
+</body>
+</html>
+
+
+<!-- name="month" [(ngModel)]="selectedMonth" ng-click="onClick()" -->
+
+<!-- <div class="row">
+        <div class="col-md-6">
+          <div style="display: block;">
+          <canvas baseChart width="400" height="400" [datasets]="lineChartData"></canvas>
+          </div>
+        </div>
+        <div class="col-md-6" style="margin-bottom: 10px">
+          <table class="table table-responsive table-condensed">
+            <tr *ngFor="let d of lineChartData">
+              <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
+            </tr>
+          </table>
+        </div>
+      </div> -->
